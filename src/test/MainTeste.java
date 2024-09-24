@@ -2,6 +2,7 @@ package test;
 
 import desafio.ContaLetra;
 import desafio.Fibonacci;
+import desafio.Incrementador;
 
 public class MainTeste {
     public static void main(String[] args) {
@@ -10,6 +11,8 @@ public class MainTeste {
         testarFibonacci();
         System.out.println("\n\n -- Testes Conta Letras--");
         testarContaLetra();
+        System.out.println("\n\n -- Testes Incrementador--");
+        testarIncrementador();
     }
 
     public static void testarFibonacci() {
@@ -43,11 +46,21 @@ public class MainTeste {
         testar(subject.contaA("Teste sem"), 0, "Contar 'a' em 'Teste sem'");
     }
 
+    public static void testarIncrementador() {
+        Incrementador incrementador = new Incrementador();
+
+        testar(incrementador.somarValoresAteLimite(2), 2, "Incrementando até 2");
+        testar(incrementador.somarValoresAteLimite(3), 5, "Incrementando até 3");
+        testar(incrementador.somarValoresAteLimite(4), 9, "Incrementando até 4");
+        testar(incrementador.somarValoresAteLimite(5), 14, "Incrementando até 5");
+        testar(incrementador.somarValoresAteLimite(12), 77, "Incrementando até 12");
+    }
+
     public static void testar(Object valor, Object esperado, String nomeTeste) {
         if (valor == esperado) {
             System.out.println("PASSOU para " + nomeTeste);
         } else {
-            System.out.println("X FALHOU para " + nomeTeste + ":  (esperado: " + esperado + " e encontro: " + valor + ")");
+            System.out.println("X FALHOU para " + nomeTeste + ":  (esperado: " + esperado + " e encontrou: " + valor + ")");
         }
     }
 }
