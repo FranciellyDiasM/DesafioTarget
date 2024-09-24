@@ -1,10 +1,15 @@
 package test;
 
+import desafio.ContaLetra;
 import desafio.Fibonacci;
 
 public class MainTeste {
     public static void main(String[] args) {
+
+        System.out.println("-- Testes Fibonacci-- \n\n");
         testarFibonacci();
+        System.out.println("-- Testes Conta Letras-- \n\n");
+        testarContaLetra();
     }
 
     public static void testarFibonacci() {
@@ -22,6 +27,20 @@ public class MainTeste {
         testar(subject.pertence(21), true, "Valida 21");
         testar(subject.pertence(34), true, "Valida 34");
         testar(subject.pertence(35), false, "Valida 35");
+    }
+
+    public static void testarContaLetra() {
+        ContaLetra subject = new ContaLetra();
+
+        // Testes com diferentes strings
+        testar(subject.contaA("abracadabra"), 5, "Contar 'a' em 'abracadabra'");
+        testar(subject.contaA("banana"), 3, "Contar 'a' em 'banana'");
+        testar(subject.contaA("cachorro"), 1, "Contar 'a' em 'cachorro'");
+        testar(subject.contaA("hello world"), 0, "Contar 'a' em 'hello world'");
+        testar(subject.contaA("Aloha"), 2, "Contar 'a' em 'Aloha'");
+        testar(subject.contaA(""), 0, "Contar 'a' em string vazia");
+        testar(subject.contaA("AaAaAa"), 6, "Contar 'a' em 'AaAaAa'");
+        testar(subject.contaA("Testando sem"), 0, "Contar 'a' em 'Testando sem a'");
     }
 
     public static void testar(Object valor, Object esperado, String nomeTeste) {
