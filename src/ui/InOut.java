@@ -6,7 +6,7 @@ public class InOut {
     public static int leInteiro(String messagem) {
         Integer retorno = null;
 
-        do{
+        do {
             try {
                 String entrada = JOptionPane.showInputDialog(messagem);
                 retorno = Integer.parseInt(entrada);
@@ -17,6 +17,10 @@ public class InOut {
         } while (retorno == null);
 
         return retorno;
+    }
+
+    public static String leTexto(String messagem) {
+        return JOptionPane.showInputDialog(messagem);
     }
 
     public static void exibeMensagem(String messagem) {
@@ -31,7 +35,7 @@ public class InOut {
         if (escolha == JOptionPane.OK_OPTION) {
             return (String) menuOpcoes.getSelectedItem();
         } else {
-            return "Operação cancelada.";
+            return "Sair";
         }
 
     }

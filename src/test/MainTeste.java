@@ -6,9 +6,9 @@ import desafio.Fibonacci;
 public class MainTeste {
     public static void main(String[] args) {
 
-        System.out.println("-- Testes Fibonacci-- \n\n");
+        System.out.println("-- Testes Fibonacci--");
         testarFibonacci();
-        System.out.println("-- Testes Conta Letras-- \n\n");
+        System.out.println("\n\n -- Testes Conta Letras--");
         testarContaLetra();
     }
 
