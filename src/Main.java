@@ -1,3 +1,4 @@
+import desafio.AnalisadorDeSequencia;
 import desafio.ContaLetra;
 import desafio.Fibonacci;
 import desafio.Incrementador;
@@ -11,11 +12,18 @@ public class Main {
         String opcaoFibonacci = "Calcular Fibonacci";
         String opcaoContaLetraA = "Contar Letras A";
         String opcaoIncrementar = "Incrementar números";
+        String opcaoAnalisarSequencia = "Analisar sequências";
         String opcaoSair = "Sair";
-        String[] opcoes = {opcaoFibonacci, opcaoContaLetraA, opcaoIncrementar, opcaoSair};
+        String[] opcoes = {
+                opcaoFibonacci,
+                opcaoContaLetraA,
+                opcaoIncrementar,
+                opcaoAnalisarSequencia,
+                opcaoSair
+        };
 
         do {
-            opcaoSelecionada = InOut.selecionaOpcao(opcoes);
+            opcaoSelecionada = InOut.selecionaOpcao(opcoes, opcaoSair);
 
             if (opcaoSelecionada.equals(opcaoFibonacci)) {
                 fibonacci();
@@ -25,16 +33,19 @@ public class Main {
             } else if (opcaoSelecionada.equals(opcaoIncrementar)) {
                 incrementar();
 
+            } else if (opcaoSelecionada.equals(opcaoAnalisarSequencia)) {
+                analisarSequencia();
+
             } else if (opcaoSelecionada.equals(opcaoSair)) {
                 InOut.exibeMensagem("Programa encerrado!");
 
             } else {
                 InOut.exibeMensagem("Opção inválida");
             }
-        } while (!opcaoSelecionada.equals(opcaoSair));
+        } while (!opcaoSair.equals(opcaoSelecionada));
     }
 
-    public static void fibonacci() {
+    private static void fibonacci() {
         Fibonacci fibonacci = new Fibonacci();
 
         int numeroInformado = InOut.leInteiro("Informe um número: ");
@@ -48,7 +59,7 @@ public class Main {
         }
     }
 
-    public static void contaLetraA() {
+    private static void contaLetraA() {
         ContaLetra contaLetra = new ContaLetra();
 
         String textoInformado = InOut.leTexto("Informe um texto: ");
@@ -63,12 +74,18 @@ public class Main {
 
     }
 
-    public static void incrementar() {
+    private static void incrementar() {
         Incrementador incrementador = new Incrementador();
 
         int indice = InOut.leInteiro("Entre com o valor do indice a ser calculado");
 
         int soma = incrementador.somarValoresAteLimite(indice);
         InOut.exibeMensagem("O valor da soma é: " + soma);
+    }
+
+    private static void analisarSequencia() {
+        AnalisadorDeSequencia analisadorDeSequencia = new AnalisadorDeSequencia();
+
+        analisadorDeSequencia.mostrarMenu();
     }
 }

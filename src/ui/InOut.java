@@ -27,16 +27,19 @@ public class InOut {
         JOptionPane.showMessageDialog(null, messagem);
     }
 
-    public static String selecionaOpcao(String[] opcoes) {
-        JComboBox<String> menuOpcoes = new JComboBox<>(opcoes);
+    public static <T> T selecionaOpcao(T[] opcoes, T padrao) {
+        JComboBox<T> menuOpcoes = new JComboBox<T>(opcoes);
 
         int escolha = JOptionPane.showConfirmDialog(null, menuOpcoes, "Escolha uma opção", JOptionPane.DEFAULT_OPTION);
 
         if (escolha == JOptionPane.OK_OPTION) {
-            return (String) menuOpcoes.getSelectedItem();
+            return (T) menuOpcoes.getSelectedItem() ;
         } else {
-            return "Sair";
+            return padrao;
         }
+    }
 
+    public static <T> T selecionaOpcao(T[] opcoes) {
+        return selecionaOpcao(opcoes, null);
     }
 }
