@@ -1,5 +1,6 @@
 import desafio.ContaLetra;
 import desafio.Fibonacci;
+import desafio.Incrementador;
 import ui.InOut;
 
 
@@ -9,18 +10,24 @@ public class Main {
 
         String opcaoFibonacci = "Calcular Fibonacci";
         String opcaoContaLetraA = "Contar Letras A";
+        String opcaoIncrementar = "Incrementar números";
         String opcaoSair = "Sair";
-        String[] opcoes = {opcaoFibonacci, opcaoContaLetraA, opcaoSair};
+        String[] opcoes = {opcaoFibonacci, opcaoContaLetraA, opcaoIncrementar, opcaoSair};
 
         do {
             opcaoSelecionada = InOut.selecionaOpcao(opcoes);
 
-            if(opcaoSelecionada.equals(opcaoFibonacci)) {
+            if (opcaoSelecionada.equals(opcaoFibonacci)) {
                 fibonacci();
             } else if (opcaoSelecionada.equals(opcaoContaLetraA)) {
                 contaLetraA();
+
+            } else if (opcaoSelecionada.equals(opcaoIncrementar)) {
+                incrementar();
+
             } else if (opcaoSelecionada.equals(opcaoSair)) {
                 InOut.exibeMensagem("Programa encerrado!");
+
             } else {
                 InOut.exibeMensagem("Opção inválida");
             }
@@ -54,5 +61,14 @@ public class Main {
             InOut.exibeMensagem("Não Possui Letra A");
         }
 
+    }
+
+    public static void incrementar() {
+        Incrementador incrementador = new Incrementador();
+
+        int indice = InOut.leInteiro("Entre com o valor do indice a ser calculado");
+
+        int soma = incrementador.somarValoresAteLimite(indice);
+        InOut.exibeMensagem("O valor da soma é: " + soma);
     }
 }
