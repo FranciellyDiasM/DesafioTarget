@@ -40,7 +40,7 @@ public class MainTeste {
         testar(subject.contaA("Aloha"), 2, "Contar 'a' em 'Aloha'");
         testar(subject.contaA(""), 0, "Contar 'a' em string vazia");
         testar(subject.contaA("AaAaAa"), 6, "Contar 'a' em 'AaAaAa'");
-        testar(subject.contaA("Testando sem"), 0, "Contar 'a' em 'Testando sem a'");
+        testar(subject.contaA("Teste sem"), 0, "Contar 'a' em 'Teste sem'");
     }
 
     public static void testar(Object valor, Object esperado, String nomeTeste) {
