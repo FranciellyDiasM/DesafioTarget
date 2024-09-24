@@ -4,7 +4,23 @@ import ui.InOut;
 
 public class Main {
     public static void main(String[] args) {
-        fibonacci();
+        String opcaoSelecionada = "";
+
+        String opcaoFibonacci = "Calcular Fibonacci";
+        String opcaoSair = "Sair";
+        String[] opcoes = {opcaoFibonacci, opcaoSair};
+
+        do {
+            opcaoSelecionada = InOut.selecionaOpcao(opcoes);
+
+            if(opcaoSelecionada.equals(opcaoFibonacci)) {
+                fibonacci();
+            } else if (opcaoSelecionada.equals(opcaoSair)) {
+                InOut.exibeMensagem("Programa encerrado!");
+            } else {
+                InOut.exibeMensagem("Opção inválida");
+            }
+        } while (!opcaoSelecionada.equals(opcaoSair));
     }
 
     public static void fibonacci() {

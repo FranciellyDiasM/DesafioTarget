@@ -22,4 +22,17 @@ public class InOut {
     public static void exibeMensagem(String messagem) {
         JOptionPane.showMessageDialog(null, messagem);
     }
+
+    public static String selecionaOpcao(String[] opcoes) {
+        JComboBox<String> menuOpcoes = new JComboBox<>(opcoes);
+
+        int escolha = JOptionPane.showConfirmDialog(null, menuOpcoes, "Escolha uma opção", JOptionPane.DEFAULT_OPTION);
+
+        if (escolha == JOptionPane.OK_OPTION) {
+            return (String) menuOpcoes.getSelectedItem();
+        } else {
+            return "Operação cancelada.";
+        }
+
+    }
 }
